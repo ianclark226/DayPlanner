@@ -50,6 +50,7 @@ $(".description").each(function (index, el) {
     if (hour == (index + 9)) {
 
         $(el).css('backgroundColor', "#ff6961");
+        
     }
     
       if (hour < (index + 9)) {
@@ -58,6 +59,10 @@ $(".description").each(function (index, el) {
          if (hour >(index + 9 )) {
          $(el).css('backgroundColor', "#d3d3d3");
      }
+
+    var task = getSavedValue("hour-" + (index + 9))
+    $(el).text(task);
+
 });
 
 function saveValue(e){
@@ -67,13 +72,14 @@ function saveValue(e){
 }
 
 //get the saved value function - return the value of "v" from localStorage. 
-function getSavedValue  (v){
+function getSavedValue(v){
   if (!localStorage.getItem(v)) {
       return "";// You can change this to your defualt value. 
   }
   return localStorage.getItem(v);
 }
 
+getSavedValue("");
 
 
 
